@@ -15,7 +15,7 @@ class PegawaiController extends Controller
         $birthdate = "2006-09-05";
         $tgl_harus_wisuda = "2028-10-28";
         $current_semester = 3;
-        $hobbies = ["Drifting"];
+        $hobbies = ["Drifting","Mancing","Dengar musik","Vollyball","Tidur"];
         $future_goal = "Menjadi Software Engineer";
 
         // Hitung umur
