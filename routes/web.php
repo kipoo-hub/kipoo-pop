@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Contollers\MahasiswaController;
@@ -37,4 +38,9 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/pegawai', [PegawaiController::class, 'index']);
 
 Route::post('question/store', [QuestionController::class, 'store'])
-		->name('question.store');
+    ->name('question.store');
+Route::get('/auth', [AuthController::class, 'index']);
+Route::post('/auth/login', [AuthController::class, 'login']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
