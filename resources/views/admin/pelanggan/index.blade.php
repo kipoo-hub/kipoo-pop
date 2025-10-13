@@ -432,13 +432,12 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah Pelanggan</h1>
-                    <p class="mb-0">Form untuk menambah pelanggan baru</p>
+                    <h1 class="h4"> Pelanggan</h1>
+                    <p class="mb-0">List data seluruh pelanggan</p>
                 </div>
                 <div>
                     <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/forms/"
@@ -447,63 +446,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 mb-4">
 
-                    <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-info">
-                                {!! session('success')!!}
-                            </div>
-
-                        @endif
-                        <form action="{{ route('pelanggan.store') }}" method="POST">
-                            @csrf
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label for="first_name" class="form-label">First name</label>
-                                    <input type="text" class="form-control" id="first_name" name="first_name"
-                                        placeholder="Masukkan nama depan">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="birthday" class="form-label">Birthday</label>
-                                    <input type="date" class="form-control" id="birthday" name="birthday">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="example@gmail.com">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label for="last_name" class="form-label">Last name</label>
-                                    <input type="text" class="form-control" id="last_name" name="last_name"
-                                        placeholder="Masukkan nama belakang">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="gender" class="form-label">Gender</label>
-                                    <select id="gender" name="gender" class="form-select">
-                                        <option value="">-- Pilih --</option>
-                                        <option value="1">Laki-laki</option>
-                                        <option value="2">Perempuan</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="phone" class="form-label">Phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone"
-                                        placeholder="08xxxxxxxxxx">
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-end mt-3">
-                                <button type="submit" class="btn btn-dark me-2">Simpan</button>
-                                <button type="reset" class="btn-success text-white">Tambah Pelanggan</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
