@@ -1,18 +1,21 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\Pelanggan;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class PelangganController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data['dataPelanggan'] = Pelanggan::all();
-        return view('admin.pelanggan.index', $data);
+        // ambil semua user (simple)
+        $data['dataUsers'] = User::all();
+        return view('admin.user.index', $data);
     }
 
     /**
@@ -20,7 +23,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        return view('admin.pelanggan.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -28,18 +31,13 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
+        $data['name']     = $request->name;
+        $data['email']    = $request->email;
+        $data['password'] = Hash::make($request->password);
+        $data['password_confirmation'] = Hash::make($request->password_confirmation);
+        User::create($data);
 
-        $data['first_name'] = $request->first_name;
-        $data['last_name']  = $request->last_name;
-        $data['birthday']   = $request->birthday;
-        $data['gender']     = $request->gender;
-        $data['email']      = $request->email;
-        $data['phone']      = $request->phone;
-
-        Pelanggan::create($data);
-
-        return redirect()->route('pelanggan.create')->with('success', 'Penambahan Data Berhasil!');
-
+        return redirect()->route('users.create')->with('success', 'Penambahan User Berhasil!');
     }
 
     /**
@@ -55,8 +53,7 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-        $data['dataPelanggan'] = Pelanggan::findOrFail($id);
-        return view('admin.pelanggan.edit', $data);
+        //
     }
 
     /**
